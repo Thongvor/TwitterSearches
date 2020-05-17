@@ -1,18 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    android:layout_height="match_parent">
+    <GridLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        tools:context=".MainActivity"
+        android:columnCount="1"
+        android:orientation="horizontal"
+        android:longClickable="true">
+       <EditText
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/queryEditText"
+           android:layout_gravity="fill_horizontal"
+           android:hint="@string/enter_query"
+           android:imeOptions="actionNext"/>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:weightSum="1">
+           <EditText
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:id="@+id/tagEditText"
+               android:layout_gravity="center_horizontal"
+               android:layout_weight="1"
+               android:hint="@string/tag_your_query"
+               android:imeOptions="actionDone"/>
+           <ImageButton
+               android:layout_width="46dp"
+               android:layout_height="46dp"
+               android:id="@+id/saveButton"
+               android:contentDescription="@string/add_search_query" />
+       </LinearLayout>
+       <LinearLayout
+           android:background="#e1e1e1"
+           android:orientation="vertical"
+           android:layout_marginTop="20dp"
+           android:paddingLeft="10dp"
+           android:paddingRight="10dp"
+           android:paddingTop="10dp"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_gravity="fill" >
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceMedium"
+               android:text="@string/tagged_searches"
+               android:id="@+id/textView"
+               android:gravity="center_horizontal"
+               android:layout_gravity="center_horizontal" />
+           <ListView
+               android:id="@android:id/list"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_gravity="fill"
+               android:layout_marginBottom="10dp"
+               android:layout_marginTop="10dp"
+               android:layout_weight="1" />
+       </LinearLayout>
+    </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
